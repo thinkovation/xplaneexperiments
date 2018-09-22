@@ -10,7 +10,6 @@ var wg sync.WaitGroup
 var X XPC
 
 func main() {
-	//X := NewXPC("127.0.0.1:49000", ":49003")
 	var newmsg FlightVal
 	newmsg.MsgType = 118
 	newmsg.Name = "APHEADING"
