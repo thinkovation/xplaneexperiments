@@ -1,0 +1,66 @@
+<html>
+        <head>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <script src="main.js"></script>    
+            </head>
+                <body>
+                        <h1>Hellos</h1>
+<div id="APHEADING" style="font-size: 30px;height:50;width:500;background-color: red;">
+    <div style="float:left; width:100;" onclick="hdgleft10()">LEFT10</div>
+    <div style="float:left; width:100;" onclick="hdgleft1()">LEFT</div>
+    <div style="float:left; width:100;text-align: center;" id="APHEADINGVAL" style="font-size: 30px;"></div>
+    <div style="float:left; width:100;" onclick="hdgright1()">RIGHT</div>
+    <div style="float:left; width:100;" onclick="hdgright10()">RIGHT10</div>
+            
+</div>
+<div id="GAUGEOUTER" style="width:400;height:400;position: relative;overflow: hidden;">
+    <div id="GAUGEBACK" style="width:400;height:400;top:1;left:1;position: absolute;"><img src="backback.png"></div> 
+
+    <div id="GAUGEPOINTER" style="width:400;height:400;top:1;left:1;position: absolute;"><img src="bexelring2.png"></div> 
+
+    <div id="GAUGEBEZEL" style="width:400;height:400;top:1;left:1;position: absolute;"><img src="axis_front.png"></div> 
+   
+
+</div>
+<div id="NAV1" style="width:600px;background-color: blanchedalmond">
+    <div id="NAV1DMED" style="width:100%"></div>
+    <div id="NAV1HDEF" style="width:100%"></div>
+    <div id="NAV1VDEF"style="width:100%"></div>
+</div>
+<div>NAV1
+    <div id="RNAV1" style="height:120px;width:500px">
+        
+        <div id="NAV1CURRENT" style="font-family:courier;font-size:50px;float:left;width:200px;height:60px;background-color: antiquewhite"></div>
+        <div id="NAV1SWITCH" style="font-size:60px;float:left;width:60px;height:60px;background-color:#ffff"><img src="radioflip.png" onclick="flipnav1();"></div>
+        <div id="NAV1NEXT" style="font-family:courier;font-size:50px;float:left;width:200px;height:60px;background-color: antiquewhite"></div>
+        <div id="NAV1CLICKS" style="float:left;height:50px;width:500px">
+            <div style="float:left;width:280px;height:10px;"></div>
+            <div id="NAV1BigUp" style="float:left;width:40px"><img src="upclick.png"></div>
+            <div id="NAV1BigDn" style="float:left;width:40px"><img src="downclick.png"></div>
+            <div style="float:left;width:30px;height:10px;"></div>
+            <div id="NAV1SmallUp" style="float:left;width:40px"><img src="upclick.png"></div>
+            <div id="NAV1SmallDn" style="float:left;width:40px"><img src="downclick.png"></div>
+            </div>        
+    </div>
+
+</div>
+<div>NAV2
+    <div id="RNAV2" style="height:120px;width:500px">
+        
+        <div id="NAV2CURRENT" style="font-family:courier;font-size:50px;float:left;width:200px;height:60px;background-color: antiquewhite"></div>
+        <div id="NAV2SWITCH" style="font-size:60px;float:left;width:60px;height:60px;background-color:#ffff"><img src="radioflip.png" onclick="flipnav2();"></div>
+        <div id="NAV2NEXT" style="font-family:courier;font-size:50px;float:left;width:200px;height:60px;background-color: antiquewhite"></div>
+        <div id="NAV2CLICKS" style="float:left;height:50px;width:500px">
+            <div style="float:left;width:280px;height:10px;"></div>
+            <div id="NAV2BigUp" style="float:left;width:40px"><img src="upclick.png"></div>
+            <div id="NAV2BigDn" style="float:left;width:40px"><img src="downclick.png"></div>
+            <div style="float:left;width:30px;height:10px;"></div>
+            <div id="NAV2SmallUp" style="float:left;width:40px"><img src="upclick.png"></div>
+            <div id="NAV2SmallDn" style="float:left;width:40px"><img src="downclick.png"></div>
+            </div>        
+    </div>
+
+</div>
+                </body>
+  
+</html>

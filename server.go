@@ -10,15 +10,11 @@ import (
 	"strconv"
 	"syscall"
 	"time"
-
+	// HTTP Niceness
 	"github.com/NYTimes/gziphandler"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )
-
-type LocList struct {
-	Locs []string
-}
 
 //"github.com/gorilla/handlers"
 type myServer struct {
@@ -31,6 +27,7 @@ type myServer struct {
 func NewServer(port string) *myServer {
 
 	//create server
+	log.Println("Initialising Server on port ", port)
 
 	s := &myServer{
 		Server: http.Server{
@@ -44,10 +41,10 @@ func NewServer(port string) *myServer {
 	router := mux.NewRouter()
 
 	//register handlers
-	router.HandleFunc("/", s.RootHandler)
 	router.HandleFunc("/dets", s.DetsHandler)
 	router.HandleFunc("/vals", s.ValsHandler)
-	router.HandleFunc("/{valname}", s.ValHandler)
+	router.HandleFunc("/vals/{valname}", s.ValHandler)
+	router.PathPrefix("/").Handler(http.FileServer(http.Dir("./static/")))
 
 	s.Handler = cors.AllowAll().Handler(gziphandler.GzipHandler(router))
 
@@ -64,7 +61,7 @@ func (s *myServer) WaitShutdown() {
 	case sig := <-s.shutdownReq:
 		log.Printf("Shutdown request (/shutdown %v)", sig)
 	}
-	log.Printf("Stopping API server ...")
+	log.Printf("Stopping XPlane server ...")
 	close(done)
 	//Create shutdown context with 10 second timeout
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
@@ -89,7 +86,7 @@ func (s *myServer) DetsHandler(w http.ResponseWriter, r *http.Request) {
 func (s *myServer) ValsHandler(w http.ResponseWriter, r *http.Request) {
 	mm := X.GetVals()
 
-	b, _ := json.Marshal(mm)
+	b, _ := json.MarshalIndent(mm, "", "")
 	w.Write([]byte(b))
 }
 func (s *myServer) ValHandler(w http.ResponseWriter, r *http.Request) {
